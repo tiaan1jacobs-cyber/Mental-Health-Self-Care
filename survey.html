@@ -4,19 +4,16 @@
   <meta charset="utf-8" />
   <title>Usability Survey | Mental Health Self-Care</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Same CSS/utility stack as checkin page -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header (same as checkin) -->
   <header class="bg-white shadow-sm">
     <div class="container mx-auto px-4 py-4">
       <h1 class="text-2xl font-bold text-gray-800">Mental Health Self-Care</h1>
     </div>
   </header>
 
-  <!-- Blue nav (same layout as checkin) -->
   <nav class="bg-blue-500 text-white">
     <div class="container mx-auto px-4 py-2 flex items-center justify-between">
       <ul class="flex space-x-6">
@@ -25,12 +22,10 @@
         <li><a href="checkin.html" class="hover:underline">Check-In</a></li>
         <li><a href="survey.html" class="hover:underline font-bold">Usability Survey</a></li>
       </ul>
-      <!-- Keep right side empty here to match checkin layout spacing -->
       <div></div>
     </div>
   </nav>
 
-  <!-- Main content area (reuse the same .checkin-bg card look) -->
   <main class="container mx-auto px-4 py-8" style="max-width: 900px;">
     <div class="checkin-bg p-8 rounded-lg shadow-md">
       <h2 class="text-3xl font-bold text-gray-800 mb-6">Website Usability Survey</h2>
@@ -45,8 +40,13 @@
         </a>.
       </p>
 
-      <form class="space-y-6" action="#" method="post"
-            onsubmit="document.getElementById('thanks').classList.remove('hidden'); this.reset(); return false;">
+      <!-- Formspree wired with POST + redirect to thanks.html -->
+      <form class="space-y-6" action="https://formspree.io/f/xpwyqgrp" method="POST">
+        <input type="hidden" name="_subject" value="Usability Survey submission">
+        <input type="hidden" name="_captcha" value="false">
+        <!-- If Formspree prefers absolute URLs, set to your Pages URL -->
+        <input type="hidden" name="_next" value="thanks.html">
+
         <!-- Name (required) -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
@@ -198,11 +198,6 @@
             Submit Survey
           </button>
         </div>
-
-        <p id="thanks" class="hidden text-sm text-gray-600 mt-2">
-          Thanks! Your response was recorded locally. To collect real responses, replace this form’s
-          <code>action</code> with a Formspree / Netlify Forms / Google Forms endpoint.
-        </p>
       </form>
     </div>
   </main>
