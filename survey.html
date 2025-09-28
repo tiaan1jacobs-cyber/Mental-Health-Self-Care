@@ -4,68 +4,90 @@
   <meta charset="utf-8" />
   <title>Usability Survey | Mental Health Self-Care</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Same CSS/utility stack as checkin page -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Header (same as checkin) -->
   <header class="bg-white shadow-sm">
     <div class="container mx-auto px-4 py-4">
       <h1 class="text-2xl font-bold text-gray-800">Mental Health Self-Care</h1>
     </div>
   </header>
 
+  <!-- Blue nav (same layout as checkin) -->
   <nav class="bg-blue-500 text-white">
-    <div class="container mx-auto px-4 py-2">
+    <div class="container mx-auto px-4 py-2 flex items-center justify-between">
       <ul class="flex space-x-6">
         <li><a href="index.html" class="hover:underline">Home</a></li>
         <li><a href="practices.html" class="hover:underline">Daily Practices</a></li>
         <li><a href="checkin.html" class="hover:underline">Check-In</a></li>
         <li><a href="survey.html" class="hover:underline font-bold">Usability Survey</a></li>
       </ul>
+      <!-- Keep right side empty here to match checkin layout spacing -->
+      <div></div>
     </div>
   </nav>
 
+  <!-- Main content area (reuse the same .checkin-bg card look) -->
   <main class="container mx-auto px-4 py-8" style="max-width: 900px;">
-    <section class="bg-white border border-blue-200 rounded-lg shadow-md p-6">
-      <h2 class="text-xl font-bold text-white bg-blue-500 rounded-md px-3 py-2 inline-block">Website Usability Survey</h2>
+    <div class="checkin-bg p-8 rounded-lg shadow-md">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6">Website Usability Survey</h2>
 
-      <p class="text-gray-600 mt-3">
+      <p class="text-gray-600 mb-6">
         Please help us improve this site by completing this 3–5 minute survey.
         View the website here:
-        <a href="https://tiaan1jacobs-cyber.github.io/Mental-Health-Self-Care/index.html" target="_blank" rel="noopener" class="text-blue-600 underline">
+        <a href="https://tiaan1jacobs-cyber.github.io/Mental-Health-Self-Care/index.html"
+           target="_blank" rel="noopener"
+           class="text-blue-600 underline break-all">
           https://tiaan1jacobs-cyber.github.io/Mental-Health-Self-Care/index.html
         </a>.
       </p>
 
-      <form class="mt-6 space-y-6" action="#" method="post" onsubmit="document.getElementById('thanks').classList.remove('hidden'); this.reset(); return false;">
-        <!-- Name -->
+      <form class="space-y-6" action="#" method="post"
+            onsubmit="document.getElementById('thanks').classList.remove('hidden'); this.reset(); return false;">
+        <!-- Name (required) -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label for="firstName" class="block font-semibold mb-1">First name <span class="text-red-600">*</span></label>
-            <input id="firstName" name="firstName" type="text" required class="w-full border rounded-md px-3 py-2" />
+            <label for="firstName" class="block font-semibold mb-1">
+              First name <span class="text-red-600">*</span>
+            </label>
+            <input id="firstName" name="firstName" type="text" required
+                   class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                          focus:outline-none focus:ring-blue-500 focus:border-blue-500" />
           </div>
           <div>
-            <label for="lastName" class="block font-semibold mb-1">Last name <span class="text-red-600">*</span></label>
-            <input id="lastName" name="lastName" type="text" required class="w-full border rounded-md px-3 py-2" />
+            <label for="lastName" class="block font-semibold mb-1">
+              Last name <span class="text-red-600">*</span>
+            </label>
+            <input id="lastName" name="lastName" type="text" required
+                   class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                          focus:outline-none focus:ring-blue-500 focus:border-blue-500" />
           </div>
         </div>
 
         <!-- Contact (optional) -->
         <div>
           <label for="email" class="block font-semibold mb-1">Email (optional)</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" class="w-full border rounded-md px-3 py-2" />
+          <input id="email" name="email" type="email" placeholder="you@example.com"
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                        focus:outline-none focus:ring-blue-500 focus:border-blue-500" />
         </div>
 
-        <!-- URL (read-only reference) -->
+        <!-- URL (read-only) -->
         <div>
           <label for="siteUrl" class="block font-semibold mb-1">Website URL (for reference)</label>
-          <input id="siteUrl" name="siteUrl" type="url" value="https://tiaan1jacobs-cyber.github.io/Mental-Health-Self-Care/index.html" readonly class="w-full border rounded-md px-3 py-2 bg-gray-50" />
+          <input id="siteUrl" name="siteUrl" type="url"
+                 value="https://tiaan1jacobs-cyber.github.io/Mental-Health-Self-Care/index.html" readonly
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50
+                        focus:outline-none focus:ring-blue-500 focus:border-blue-500" />
         </div>
 
         <!-- Ratings -->
         <div>
           <label class="block font-semibold mb-2">How easy was it to find information?</label>
-          <div class="flex items-center space-x-4">
+          <div class="flex items-center flex-wrap gap-4">
             <label><input type="radio" name="findEase" value="1" required class="mr-1">1</label>
             <label><input type="radio" name="findEase" value="2" class="mr-1">2</label>
             <label><input type="radio" name="findEase" value="3" class="mr-1">3</label>
@@ -76,7 +98,7 @@
 
         <div>
           <label class="block font-semibold mb-2">Navigation clarity (menus & labels)</label>
-          <div class="flex items-center space-x-4">
+          <div class="flex items-center flex-wrap gap-4">
             <label><input type="radio" name="navClarity" value="1" required class="mr-1">1</label>
             <label><input type="radio" name="navClarity" value="2" class="mr-1">2</label>
             <label><input type="radio" name="navClarity" value="3" class="mr-1">3</label>
@@ -87,7 +109,7 @@
 
         <div>
           <label class="block font-semibold mb-2">Visual design (colors, contrast, readability)</label>
-          <div class="flex items-center space-x-4">
+          <div class="flex items-center flex-wrap gap-4">
             <label><input type="radio" name="visual" value="1" required class="mr-1">1</label>
             <label><input type="radio" name="visual" value="2" class="mr-1">2</label>
             <label><input type="radio" name="visual" value="3" class="mr-1">3</label>
@@ -100,14 +122,20 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label for="device" class="block font-semibold mb-1">What device did you use?</label>
-            <select id="device" name="device" class="w-full border rounded-md px-3 py-2">
-              <option>Phone</option><option>Tablet</option><option>Laptop</option><option>Desktop</option>
+            <select id="device" name="device"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                           focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+              <option>Phone</option><option>Tablet</option>
+              <option>Laptop</option><option>Desktop</option>
             </select>
           </div>
           <div>
             <label for="visitFreq" class="block font-semibold mb-1">How often do you visit sites like this?</label>
-            <select id="visitFreq" name="visitFreq" class="w-full border rounded-md px-3 py-2">
-              <option>Rarely</option><option>Occasionally</option><option>Weekly</option><option>Daily</option>
+            <select id="visitFreq" name="visitFreq"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                           focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+              <option>Rarely</option><option>Occasionally</option>
+              <option>Weekly</option><option>Daily</option>
             </select>
           </div>
         </div>
@@ -128,7 +156,7 @@
         <!-- Binary + NPS -->
         <div>
           <label class="block font-semibold mb-2">Did the pages load quickly?</label>
-          <div class="flex items-center space-x-4">
+          <div class="flex items-center gap-6">
             <label><input type="radio" name="speed" value="yes" required class="mr-1">Yes</label>
             <label><input type="radio" name="speed" value="no" class="mr-1">No</label>
           </div>
@@ -136,27 +164,37 @@
 
         <div>
           <label for="nps" class="block font-semibold mb-1">How likely are you to recommend this site to a friend? (0–10)</label>
-          <input id="nps" name="nps" type="number" min="0" max="10" step="1" class="w-full border rounded-md px-3 py-2" />
+          <input id="nps" name="nps" type="number" min="0" max="10" step="1"
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                        focus:outline-none focus:ring-blue-500 focus:border-blue-500" />
         </div>
 
         <!-- Textareas -->
         <div>
           <label for="confusing" class="block font-semibold mb-1">What (if anything) was confusing or difficult?</label>
-          <textarea id="confusing" name="confusing" rows="3" class="w-full border rounded-md px-3 py-2" placeholder="Tell us what tripped you up…"></textarea>
+          <textarea id="confusing" name="confusing" rows="3"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                           focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Tell us what tripped you up…"></textarea>
         </div>
 
         <div>
           <label for="likeMost" class="block font-semibold mb-1">What did you like most?</label>
-          <textarea id="likeMost" name="likeMost" rows="3" class="w-full border rounded-md px-3 py-2"></textarea>
+          <textarea id="likeMost" name="likeMost" rows="3"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                           focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
         </div>
 
         <div>
           <label for="suggestions" class="block font-semibold mb-1">Any other suggestions?</label>
-          <textarea id="suggestions" name="suggestions" rows="3" class="w-full border rounded-md px-3 py-2"></textarea>
+          <textarea id="suggestions" name="suggestions" rows="3"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                           focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
         </div>
 
         <div class="text-right">
-          <button type="submit" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2.5 px-4 rounded-md">
+          <button type="submit"
+                  class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2.5 px-4 rounded-md">
             Submit Survey
           </button>
         </div>
@@ -166,7 +204,7 @@
           <code>action</code> with a Formspree / Netlify Forms / Google Forms endpoint.
         </p>
       </form>
-    </section>
+    </div>
   </main>
 
   <footer class="bg-gray-800 text-white py-6">
