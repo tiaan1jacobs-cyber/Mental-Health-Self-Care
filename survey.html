@@ -2,196 +2,176 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Website Usability Survey | Mental Health Self-Care</title>
+  <title>Usability Survey | Mental Health Self-Care</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <header class="site-header">
-    <div class="container">
-      <h1 class="site-title">Mental Health Self-Care</h1>
+  <header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-4">
+      <h1 class="text-2xl font-bold text-gray-800">Mental Health Self-Care</h1>
     </div>
   </header>
 
-  <nav class="site-nav">
-    <div class="container nav-inner">
-      <a href="index.html">Home</a>
-      <a href="checkin.html">Daily Check-In</a>
-      <a href="survey.html" aria-current="page">Usability Survey</a>
+  <nav class="bg-blue-500 text-white">
+    <div class="container mx-auto px-4 py-2">
+      <ul class="flex space-x-6">
+        <li><a href="index.html" class="hover:underline">Home</a></li>
+        <li><a href="practices.html" class="hover:underline">Daily Practices</a></li>
+        <li><a href="checkin.html" class="hover:underline">Check-In</a></li>
+        <li><a href="survey.html" class="hover:underline font-bold">Usability Survey</a></li>
+      </ul>
     </div>
   </nav>
 
-  <main class="container" style="max-width: 900px;">
-    <section class="form-card" aria-labelledby="survey-title">
-      <h2 id="survey-title" class="form-card__title">Website Usability Survey</h2>
+  <main class="container mx-auto px-4 py-8" style="max-width: 900px;">
+    <section class="bg-white border border-blue-200 rounded-lg shadow-md p-6">
+      <h2 class="text-xl font-bold text-white bg-blue-500 rounded-md px-3 py-2 inline-block">Website Usability Survey</h2>
 
-      <p class="muted">
-        Please help us improve our site by completing this 3–5 minute survey.
-        View the site here:
-        <a href="https://tiaan1jacobs-cyber.github.io/Mental-Health-Self-Care/index.html" target="_blank" rel="noopener">
+      <p class="text-gray-600 mt-3">
+        Please help us improve this site by completing this 3–5 minute survey.
+        View the website here:
+        <a href="https://tiaan1jacobs-cyber.github.io/Mental-Health-Self-Care/index.html" target="_blank" rel="noopener" class="text-blue-600 underline">
           https://tiaan1jacobs-cyber.github.io/Mental-Health-Self-Care/index.html
         </a>.
-        Required fields are marked <span aria-hidden="true" style="color:#b91c1c;">*</span>.
       </p>
 
-      <!-- Replace `action` with your real endpoint (Formspree/Netlify/Google Forms) -->
-      <form action="#" method="post" novalidate onsubmit="document.getElementById('thanks').hidden=false; this.reset(); return false;">
-        <!-- Q1: First + Last name (required) -->
-        <fieldset>
-          <legend>About You</legend>
-          <div class="form-grid">
-            <div class="form-row">
-              <label for="firstName">First name <span aria-hidden="true" class="req">*</span></label>
-              <input id="firstName" name="firstName" type="text" required />
-            </div>
-            <div class="form-row">
-              <label for="lastName">Last name <span aria-hidden="true" class="req">*</span></label>
-              <input id="lastName" name="lastName" type="text" required />
-            </div>
+      <form class="mt-6 space-y-6" action="#" method="post" onsubmit="document.getElementById('thanks').classList.remove('hidden'); this.reset(); return false;">
+        <!-- Name -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="firstName" class="block font-semibold mb-1">First name <span class="text-red-600">*</span></label>
+            <input id="firstName" name="firstName" type="text" required class="w-full border rounded-md px-3 py-2" />
           </div>
-
-          <div class="form-row">
-            <label for="email">Email (optional)</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" />
+          <div>
+            <label for="lastName" class="block font-semibold mb-1">Last name <span class="text-red-600">*</span></label>
+            <input id="lastName" name="lastName" type="text" required class="w-full border rounded-md px-3 py-2" />
           </div>
-
-          <div class="form-row">
-            <label for="siteUrl">Website URL (for reference)</label>
-            <input id="siteUrl" name="siteUrl" type="url"
-                   value="https://tiaan1jacobs-cyber.github.io/Mental-Health-Self-Care/index.html" readonly />
-          </div>
-        </fieldset>
-
-        <!-- Quantitative ratings -->
-        <fieldset>
-          <legend>Overall Experience</legend>
-
-          <div class="form-row">
-            <label>How easy was it to find information?</label>
-            <div class="inline-options" role="group" aria-label="find ease">
-              <label><input type="radio" name="findEase" value="1" required /> 1</label>
-              <label><input type="radio" name="findEase" value="2" /> 2</label>
-              <label><input type="radio" name="findEase" value="3" /> 3</label>
-              <label><input type="radio" name="findEase" value="4" /> 4</label>
-              <label><input type="radio" name="findEase" value="5" /> 5 (Very easy)</label>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <label>Navigation clarity (menus &amp; labels)</label>
-            <div class="inline-options" role="group" aria-label="nav clarity">
-              <label><input type="radio" name="navClarity" value="1" required /> 1</label>
-              <label><input type="radio" name="navClarity" value="2" /> 2</label>
-              <label><input type="radio" name="navClarity" value="3" /> 3</label>
-              <label><input type="radio" name="navClarity" value="4" /> 4</label>
-              <label><input type="radio" name="navClarity" value="5" /> 5 (Very clear)</label>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <label>Visual design (colors, contrast, readability)</label>
-            <div class="inline-options" role="group" aria-label="visual design">
-              <label><input type="radio" name="visual" value="1" required /> 1</label>
-              <label><input type="radio" name="visual" value="2" /> 2</label>
-              <label><input type="radio" name="visual" value="3" /> 3</label>
-              <label><input type="radio" name="visual" value="4" /> 4</label>
-              <label><input type="radio" name="visual" value="5" /> 5 (Excellent)</label>
-            </div>
-          </div>
-
-          <div class="form-grid">
-            <div class="form-row">
-              <label for="device">What device did you use?</label>
-              <select id="device" name="device">
-                <option>Phone</option><option>Tablet</option>
-                <option>Laptop</option><option>Desktop</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <label for="visitFreq">How often do you visit sites like this?</label>
-              <select id="visitFreq" name="visitFreq">
-                <option>Rarely</option><option>Occasionally</option>
-                <option>Weekly</option><option>Daily</option>
-              </select>
-            </div>
-          </div>
-        </fieldset>
-
-        <!-- Content & tasks -->
-        <fieldset>
-          <legend>Content & Tasks</legend>
-
-          <div class="form-row">
-            <label>Did pages load quickly for you?</label>
-            <div class="inline-options" role="group" aria-label="speed">
-              <label><input type="radio" name="speed" value="yes" required /> Yes</label>
-              <label><input type="radio" name="speed" value="no" /> No</label>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <label>Which sections did you visit? (check all that apply)</label>
-            <div class="checkbox-grid">
-              <label><input type="checkbox" name="sections" value="home" /> Home</label>
-              <label><input type="checkbox" name="sections" value="education" /> Education / Resources</label>
-              <label><input type="checkbox" name="sections" value="checkin" /> Daily Check-In</label>
-              <label><input type="checkbox" name="sections" value="contact" /> Contact / Survey</label>
-              <label><input type="checkbox" name="sections" value="about" /> About</label>
-              <label><input type="checkbox" name="sections" value="other" /> Other</label>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <label>Were you able to accomplish your goal on the site?</label>
-            <div class="inline-options" role="group" aria-label="goal">
-              <label><input type="radio" name="goal" value="yes" required /> Yes</label>
-              <label><input type="radio" name="goal" value="partly" /> Partly</label>
-              <label><input type="radio" name="goal" value="no" /> No</label>
-            </div>
-          </div>
-        </fieldset>
-
-        <!-- Qualitative + NPS -->
-        <fieldset>
-          <legend>Feedback</legend>
-
-          <div class="form-row">
-            <label for="confusing">What (if anything) was confusing or difficult?</label>
-            <textarea id="confusing" name="confusing" rows="3" placeholder="Tell us what tripped you up…"></textarea>
-          </div>
-
-          <div class="form-row">
-            <label for="likeMost">What did you like most?</label>
-            <textarea id="likeMost" name="likeMost" rows="3"></textarea>
-          </div>
-
-          <div class="form-row">
-            <label for="nps">How likely are you to recommend this site to a friend? (0–10)</label>
-            <input id="nps" name="nps" type="number" min="0" max="10" step="1" />
-          </div>
-
-          <div class="form-row">
-            <label for="suggestions">Any other suggestions?</label>
-            <textarea id="suggestions" name="suggestions" rows="3"></textarea>
-          </div>
-        </fieldset>
-
-        <div class="form-actions">
-          <button type="submit" class="btn btn-green">Submit Survey</button>
         </div>
 
-        <p id="thanks" hidden class="muted" style="margin-top:1rem;">
-          Thanks! Your response was recorded locally. To collect real responses,
-          replace this form’s <code>action</code> with a Formspree / Netlify Forms / Google Forms endpoint.
+        <!-- Contact (optional) -->
+        <div>
+          <label for="email" class="block font-semibold mb-1">Email (optional)</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" class="w-full border rounded-md px-3 py-2" />
+        </div>
+
+        <!-- URL (read-only reference) -->
+        <div>
+          <label for="siteUrl" class="block font-semibold mb-1">Website URL (for reference)</label>
+          <input id="siteUrl" name="siteUrl" type="url" value="https://tiaan1jacobs-cyber.github.io/Mental-Health-Self-Care/index.html" readonly class="w-full border rounded-md px-3 py-2 bg-gray-50" />
+        </div>
+
+        <!-- Ratings -->
+        <div>
+          <label class="block font-semibold mb-2">How easy was it to find information?</label>
+          <div class="flex items-center space-x-4">
+            <label><input type="radio" name="findEase" value="1" required class="mr-1">1</label>
+            <label><input type="radio" name="findEase" value="2" class="mr-1">2</label>
+            <label><input type="radio" name="findEase" value="3" class="mr-1">3</label>
+            <label><input type="radio" name="findEase" value="4" class="mr-1">4</label>
+            <label><input type="radio" name="findEase" value="5" class="mr-1">5 (Very easy)</label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold mb-2">Navigation clarity (menus & labels)</label>
+          <div class="flex items-center space-x-4">
+            <label><input type="radio" name="navClarity" value="1" required class="mr-1">1</label>
+            <label><input type="radio" name="navClarity" value="2" class="mr-1">2</label>
+            <label><input type="radio" name="navClarity" value="3" class="mr-1">3</label>
+            <label><input type="radio" name="navClarity" value="4" class="mr-1">4</label>
+            <label><input type="radio" name="navClarity" value="5" class="mr-1">5 (Very clear)</label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold mb-2">Visual design (colors, contrast, readability)</label>
+          <div class="flex items-center space-x-4">
+            <label><input type="radio" name="visual" value="1" required class="mr-1">1</label>
+            <label><input type="radio" name="visual" value="2" class="mr-1">2</label>
+            <label><input type="radio" name="visual" value="3" class="mr-1">3</label>
+            <label><input type="radio" name="visual" value="4" class="mr-1">4</label>
+            <label><input type="radio" name="visual" value="5" class="mr-1">5 (Excellent)</label>
+          </div>
+        </div>
+
+        <!-- Selects -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="device" class="block font-semibold mb-1">What device did you use?</label>
+            <select id="device" name="device" class="w-full border rounded-md px-3 py-2">
+              <option>Phone</option><option>Tablet</option><option>Laptop</option><option>Desktop</option>
+            </select>
+          </div>
+          <div>
+            <label for="visitFreq" class="block font-semibold mb-1">How often do you visit sites like this?</label>
+            <select id="visitFreq" name="visitFreq" class="w-full border rounded-md px-3 py-2">
+              <option>Rarely</option><option>Occasionally</option><option>Weekly</option><option>Daily</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Checkboxes -->
+        <div>
+          <label class="block font-semibold mb-2">Which sections did you visit? (check all that apply)</label>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <label><input type="checkbox" name="sections" value="home" class="mr-2">Home</label>
+            <label><input type="checkbox" name="sections" value="education" class="mr-2">Education / Resources</label>
+            <label><input type="checkbox" name="sections" value="checkin" class="mr-2">Daily Check-In</label>
+            <label><input type="checkbox" name="sections" value="contact" class="mr-2">Contact / Survey</label>
+            <label><input type="checkbox" name="sections" value="about" class="mr-2">About</label>
+            <label><input type="checkbox" name="sections" value="other" class="mr-2">Other</label>
+          </div>
+        </div>
+
+        <!-- Binary + NPS -->
+        <div>
+          <label class="block font-semibold mb-2">Did the pages load quickly?</label>
+          <div class="flex items-center space-x-4">
+            <label><input type="radio" name="speed" value="yes" required class="mr-1">Yes</label>
+            <label><input type="radio" name="speed" value="no" class="mr-1">No</label>
+          </div>
+        </div>
+
+        <div>
+          <label for="nps" class="block font-semibold mb-1">How likely are you to recommend this site to a friend? (0–10)</label>
+          <input id="nps" name="nps" type="number" min="0" max="10" step="1" class="w-full border rounded-md px-3 py-2" />
+        </div>
+
+        <!-- Textareas -->
+        <div>
+          <label for="confusing" class="block font-semibold mb-1">What (if anything) was confusing or difficult?</label>
+          <textarea id="confusing" name="confusing" rows="3" class="w-full border rounded-md px-3 py-2" placeholder="Tell us what tripped you up…"></textarea>
+        </div>
+
+        <div>
+          <label for="likeMost" class="block font-semibold mb-1">What did you like most?</label>
+          <textarea id="likeMost" name="likeMost" rows="3" class="w-full border rounded-md px-3 py-2"></textarea>
+        </div>
+
+        <div>
+          <label for="suggestions" class="block font-semibold mb-1">Any other suggestions?</label>
+          <textarea id="suggestions" name="suggestions" rows="3" class="w-full border rounded-md px-3 py-2"></textarea>
+        </div>
+
+        <div class="text-right">
+          <button type="submit" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2.5 px-4 rounded-md">
+            Submit Survey
+          </button>
+        </div>
+
+        <p id="thanks" class="hidden text-sm text-gray-600 mt-2">
+          Thanks! Your response was recorded locally. To collect real responses, replace this form’s
+          <code>action</code> with a Formspree / Netlify Forms / Google Forms endpoint.
         </p>
       </form>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 Mental Health Self-Care</p>
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-4">
+      <p class="text-center">&copy; 2025 Mental Health Self-Care</p>
     </div>
   </footer>
 </body>
