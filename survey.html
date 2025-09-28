@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Website Usability Survey | Mental Health Self-Care</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Mental Health Self-Care</h1>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a href="index.html">Home</a>
+      <a href="checkin.html">Daily Check-In</a>
+      <a href="survey.html" aria-current="page">Usability Survey</a>
+    </div>
+  </nav>
+
+  <main class="container" style="max-width: 900px;">
+    <section class="form-card" aria-labelledby="survey-title">
+      <h2 id="survey-title" class="form-card__title">Website Usability Survey</h2>
+
+      <p class="muted">
+        Please help us improve our site by completing this 3–5 minute survey.
+        View the site here:
+        <a href="https://tiaan1jacobs-cyber.github.io/Mental-Health-Self-Care/index.html" target="_blank" rel="noopener">
+          https://tiaan1jacobs-cyber.github.io/Mental-Health-Self-Care/index.html
+        </a>.
+        Required fields are marked <span aria-hidden="true" style="color:#b91c1c;">*</span>.
+      </p>
+
+      <!-- Replace `action` with your real endpoint (Formspree/Netlify/Google Forms) -->
+      <form action="#" method="post" novalidate onsubmit="document.getElementById('thanks').hidden=false; this.reset(); return false;">
+        <!-- Q1: First + Last name (required) -->
+        <fieldset>
+          <legend>About You</legend>
+          <div class="form-grid">
+            <div class="form-row">
+              <label for="firstName">First name <span aria-hidden="true" class="req">*</span></label>
+              <input id="firstName" name="firstName" type="text" required />
+            </div>
+            <div class="form-row">
+              <label for="lastName">Last name <span aria-hidden="true" class="req">*</span></label>
+              <input id="lastName" name="lastName" type="text" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email (optional)</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" />
+          </div>
+
+          <div class="form-row">
+            <label for="siteUrl">Website URL (for reference)</label>
+            <input id="siteUrl" name="siteUrl" type="url"
+                   value="https://tiaan1jacobs-cyber.github.io/Mental-Health-Self-Care/index.html" readonly />
+          </div>
+        </fieldset>
+
+        <!-- Quantitative ratings -->
+        <fieldset>
+          <legend>Overall Experience</legend>
+
+          <div class="form-row">
+            <label>How easy was it to find information?</label>
+            <div class="inline-options" role="group" aria-label="find ease">
+              <label><input type="radio" name="findEase" value="1" required /> 1</label>
+              <label><input type="radio" name="findEase" value="2" /> 2</label>
+              <label><input type="radio" name="findEase" value="3" /> 3</label>
+              <label><input type="radio" name="findEase" value="4" /> 4</label>
+              <label><input type="radio" name="findEase" value="5" /> 5 (Very easy)</label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label>Navigation clarity (menus &amp; labels)</label>
+            <div class="inline-options" role="group" aria-label="nav clarity">
+              <label><input type="radio" name="navClarity" value="1" required /> 1</label>
+              <label><input type="radio" name="navClarity" value="2" /> 2</label>
+              <label><input type="radio" name="navClarity" value="3" /> 3</label>
+              <label><input type="radio" name="navClarity" value="4" /> 4</label>
+              <label><input type="radio" name="navClarity" value="5" /> 5 (Very clear)</label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label>Visual design (colors, contrast, readability)</label>
+            <div class="inline-options" role="group" aria-label="visual design">
+              <label><input type="radio" name="visual" value="1" required /> 1</label>
+              <label><input type="radio" name="visual" value="2" /> 2</label>
+              <label><input type="radio" name="visual" value="3" /> 3</label>
+              <label><input type="radio" name="visual" value="4" /> 4</label>
+              <label><input type="radio" name="visual" value="5" /> 5 (Excellent)</label>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-row">
+              <label for="device">What device did you use?</label>
+              <select id="device" name="device">
+                <option>Phone</option><option>Tablet</option>
+                <option>Laptop</option><option>Desktop</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="visitFreq">How often do you visit sites like this?</label>
+              <select id="visitFreq" name="visitFreq">
+                <option>Rarely</option><option>Occasionally</option>
+                <option>Weekly</option><option>Daily</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Content & tasks -->
+        <fieldset>
+          <legend>Content & Tasks</legend>
+
+          <div class="form-row">
+            <label>Did pages load quickly for you?</label>
+            <div class="inline-options" role="group" aria-label="speed">
+              <label><input type="radio" name="speed" value="yes" required /> Yes</label>
+              <label><input type="radio" name="speed" value="no" /> No</label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label>Which sections did you visit? (check all that apply)</label>
+            <div class="checkbox-grid">
+              <label><input type="checkbox" name="sections" value="home" /> Home</label>
+              <label><input type="checkbox" name="sections" value="education" /> Education / Resources</label>
+              <label><input type="checkbox" name="sections" value="checkin" /> Daily Check-In</label>
+              <label><input type="checkbox" name="sections" value="contact" /> Contact / Survey</label>
+              <label><input type="checkbox" name="sections" value="about" /> About</label>
+              <label><input type="checkbox" name="sections" value="other" /> Other</label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label>Were you able to accomplish your goal on the site?</label>
+            <div class="inline-options" role="group" aria-label="goal">
+              <label><input type="radio" name="goal" value="yes" required /> Yes</label>
+              <label><input type="radio" name="goal" value="partly" /> Partly</label>
+              <label><input type="radio" name="goal" value="no" /> No</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Qualitative + NPS -->
+        <fieldset>
+          <legend>Feedback</legend>
+
+          <div class="form-row">
+            <label for="confusing">What (if anything) was confusing or difficult?</label>
+            <textarea id="confusing" name="confusing" rows="3" placeholder="Tell us what tripped you up…"></textarea>
+          </div>
+
+          <div class="form-row">
+            <label for="likeMost">What did you like most?</label>
+            <textarea id="likeMost" name="likeMost" rows="3"></textarea>
+          </div>
+
+          <div class="form-row">
+            <label for="nps">How likely are you to recommend this site to a friend? (0–10)</label>
+            <input id="nps" name="nps" type="number" min="0" max="10" step="1" />
+          </div>
+
+          <div class="form-row">
+            <label for="suggestions">Any other suggestions?</label>
+            <textarea id="suggestions" name="suggestions" rows="3"></textarea>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-green">Submit Survey</button>
+        </div>
+
+        <p id="thanks" hidden class="muted" style="margin-top:1rem;">
+          Thanks! Your response was recorded locally. To collect real responses,
+          replace this form’s <code>action</code> with a Formspree / Netlify Forms / Google Forms endpoint.
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Mental Health Self-Care</p>
+    </div>
+  </footer>
+</body>
+</html>
