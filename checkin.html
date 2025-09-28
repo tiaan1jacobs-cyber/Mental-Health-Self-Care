@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Check-In | Mental Health Self-Care</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"><link rel="stylesheet" href="style.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="bg-white shadow-sm">
@@ -14,13 +14,20 @@
         </div>
     </header>
 
+    <!-- Nav with top-right Survey button -->
     <nav class="bg-blue-500 text-white">
-        <div class="container mx-auto px-4 py-2">
+        <div class="container mx-auto px-4 py-2 flex items-center justify-between">
             <ul class="flex space-x-6">
                 <li><a href="index.html" class="hover:underline">Home</a></li>
                 <li><a href="practices.html" class="hover:underline">Daily Practices</a></li>
                 <li><a href="checkin.html" class="hover:underline font-bold">Check-In</a></li>
             </ul>
+
+            <!-- Top-right Survey button (only addition) -->
+            <a href="survey.html"
+               class="inline-block bg-white text-blue-600 font-semibold px-3 py-2 rounded-md shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+               Usability Survey
+            </a>
         </div>
     </nav>
 
@@ -129,7 +136,5 @@
             <p class="text-center mb-2">Need immediate help? Call 988 (Suicide & Crisis Lifeline)</p>
         </div>
     </footer>
-
-    
 </body>
 </html>
