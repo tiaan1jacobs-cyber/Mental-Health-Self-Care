@@ -3,84 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daily self-care practices including breathing exercises, journaling prompts, desk stretches, and mindfulness techniques for mental wellness.">
+    <meta name="theme-color" content="#3b82f6">
     <title>Daily Practices | Mental Health Self-Care</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"><link rel="stylesheet" href="style.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Enhanced contrast styles for WCAG AA compliance */
+        .card-title {
+            color: #1f2937; /* High contrast for headings */
+        }
+        
+        .card-text {
+            color: #374151; /* 9.25:1 contrast ratio */
+        }
+        
+        .card-note {
+            color: #4b5563; /* 7:1 contrast ratio */
+        }
+        
+        /* Skip to main content link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #1e40af;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: 0 0 4px 0;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+            outline: 2px solid #fbbf24;
+            outline-offset: 2px;
+        }
+        
+        /* Focus visible styles */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid #2563eb;
+            outline-offset: 2px;
+        }
+        
+        /* Screen reader only text */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Enhanced footer link contrast */
+        .footer-link {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        
+        .footer-link:hover,
+        .footer-link:focus {
+            color: #e5e7eb;
+        }
+        
+        /* Remove emoji reliance, ensure decorative */
+        .practice-icon {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+    </style>
 </head>
 <body>
-    <header class="bg-white shadow-sm">
+    <!-- Skip to main content for keyboard navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="bg-white shadow-sm" role="banner">
         <div class="container mx-auto px-4 py-4">
             <h1 class="text-2xl font-bold text-gray-800">Mental Health Self-Care</h1>
         </div>
     </header>
 
-    <nav class="bg-blue-500 text-white">
+    <nav class="bg-blue-500 text-white" role="navigation" aria-label="Main navigation">
         <div class="container mx-auto px-4 py-2">
-            <ul class="flex space-x-6">
-                <li><a href="index.html" class="hover:underline">Home</a></li>
-                <li><a href="practices.html" class="hover:underline font-bold">Daily Practices</a></li>
-                <li><a href="checkin.html" class="hover:underline">Check-In</a></li>
+            <ul class="flex space-x-6" role="list">
+                <li role="listitem">
+                    <a href="index.html" class="hover:underline focus:underline">Home</a>
+                </li>
+                <li role="listitem">
+                    <a href="practices.html" class="hover:underline focus:underline" aria-current="page">Daily Practices</a>
+                </li>
+                <li role="listitem">
+                    <a href="checkin.html" class="hover:underline focus:underline">Check-In</a>
+                </li>
             </ul>
         </div>
     </nav>
 
-    <main class="container mx-auto px-4 py-8">
+    <main id="main-content" class="container mx-auto px-4 py-8" role="main">
         <h2 class="text-3xl font-bold text-gray-800 mb-6">Daily Self-Care Practices</h2>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" role="list">
             <!-- Breathing Exercise -->
-            <div class="bg-white p-6 rounded-lg shadow-sm">
+            <article class="bg-white p-6 rounded-lg shadow-sm" role="listitem">
                 <div class="flex items-center mb-4">
-                    <span aria-hidden="true">🌬️</span>
-                    <h3 class="text-xl font-bold text-gray-800">5-Minute Breathing</h3>
+                    <span class="practice-icon" aria-hidden="true">🌬️</span>
+                    <h3 class="text-xl font-bold card-title">5-Minute Breathing</h3>
                 </div>
-                <ol class="list-decimal pl-5 space-y-2 text-gray-700">
+                <ol class="list-decimal pl-5 space-y-2 card-text" role="list">
                     <li>Find a comfortable seated position</li>
                     <li>Inhale deeply for 4 seconds</li>
                     <li>Hold your breath for 4 seconds</li>
                     <li>Exhale slowly for 6 seconds</li>
                     <li>Repeat for 5 minutes</li>
                 </ol>
-                <p class="mt-4 text-sm text-gray-500">Helps reduce anxiety and improve focus</p>
-            </div>
+                <p class="mt-4 text-sm card-note"><strong>Benefits:</strong> Helps reduce anxiety and improve focus</p>
+            </article>
 
             <!-- Journaling Prompts -->
-            <div class="bg-white p-6 rounded-lg shadow-sm">
+            <article class="bg-white p-6 rounded-lg shadow-sm" role="listitem">
                 <div class="flex items-center mb-4">
-                    <span aria-hidden="true">✍️</span>
-                    <h3 class="text-xl font-bold text-gray-800">Journaling Prompts</h3>
+                    <span class="practice-icon" aria-hidden="true">✍️</span>
+                    <h3 class="text-xl font-bold card-title">Journaling Prompts</h3>
                 </div>
-                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                <ul class="list-disc pl-5 space-y-2 card-text" role="list">
                     <li>What's one thing I'm grateful for today?</li>
                     <li>What's been challenging me lately?</li>
                     <li>How can I be kind to myself today?</li>
                     <li>What small win did I have this week?</li>
                 </ul>
-                <p class="mt-4 text-sm text-gray-500">Try writing for just 5 minutes</p>
-            </div>
+                <p class="mt-4 text-sm card-note"><strong>Tip:</strong> Try writing for just 5 minutes</p>
+            </article>
 
             <!-- Quick Stretches -->
-            <div class="bg-white p-6 rounded-lg shadow-sm">
+            <article class="bg-white p-6 rounded-lg shadow-sm" role="listitem">
                 <div class="flex items-center mb-4">
-                    <span aria-hidden="true">🏃</span>
-                    <h3 class="text-xl font-bold text-gray-800">Desk Stretches</h3>
+                    <span class="practice-icon" aria-hidden="true">🏃</span>
+                    <h3 class="text-xl font-bold card-title">Desk Stretches</h3>
                 </div>
-                <ol class="list-decimal pl-5 space-y-2 text-gray-700">
+                <ol class="list-decimal pl-5 space-y-2 card-text" role="list">
                     <li>Neck rolls - 5 each side</li>
-                    <li>Shoulder shrugs - 10 reps</li>
-                    <li>Seated twist - hold 15 sec each side</li>
+                    <li>Shoulder shrugs - 10 repetitions</li>
+                    <li>Seated twist - hold 15 seconds each side</li>
                     <li>Wrist circles - 10 each direction</li>
                 </ol>
-                <p class="mt-4 text-sm text-gray-500">Great between study sessions</p>
-            </div>
+                <p class="mt-4 text-sm card-note"><strong>Best for:</strong> Great between study sessions</p>
+            </article>
 
             <!-- Mindfulness -->
-            <div class="bg-white p-6 rounded-lg shadow-sm">
+            <article class="bg-white p-6 rounded-lg shadow-sm" role="listitem">
                 <div class="flex items-center mb-4">
-                    <span aria-hidden="true">👁️</span>
-                    <h3 class="text-xl font-bold text-gray-800">Mindfulness Exercise</h3>
+                    <span class="practice-icon" aria-hidden="true">👁️</span>
+                    <h3 class="text-xl font-bold card-title">Mindfulness Exercise</h3>
                 </div>
-                <ol class="list-decimal pl-5 space-y-2 text-gray-700">
+                <ol class="list-decimal pl-5 space-y-2 card-text" role="list">
                     <li>Pause what you're doing</li>
                     <li>Notice 5 things you can see</li>
                     <li>4 things you can touch</li>
@@ -88,17 +170,23 @@
                     <li>2 things you can smell</li>
                     <li>1 thing you can taste</li>
                 </ol>
-                <p class="mt-4 text-sm text-gray-500">Ground yourself in the present moment</p>
-            </div>
+                <p class="mt-4 text-sm card-note"><strong>Purpose:</strong> Ground yourself in the present moment</p>
+            </article>
         </div>
     </main>
 
-    <footer class="bg-gray-800 text-white py-6">
+    <footer class="bg-gray-800 text-white py-6" role="contentinfo">
         <div class="container mx-auto px-4">
-            <p class="text-center mb-2">Need immediate help? Call 988 (Suicide & Crisis Lifeline)</p>
+            <p class="text-center mb-2">
+                <strong>Need immediate help?</strong> 
+                <span class="sr-only">Call the</span> 
+                <a href="tel:988" 
+                   class="footer-link"
+                   aria-label="Call 988 Suicide and Crisis Lifeline">
+                    988 Suicide & Crisis Lifeline
+                </a>
+            </p>
         </div>
     </footer>
-
-    
 </body>
 </html>
