@@ -3,127 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daily mental health check-in form to track your emotions, mood, and wellbeing with personalized recommendations.">
+    <meta name="theme-color" content="#3b82f6">
     <title>Daily Check-In | Mental Health Self-Care</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Enhanced contrast styles for WCAG AA compliance */
+        .form-label {
+            color: #1f2937; /* High contrast */
+        }
+        
+        .form-text {
+            color: #374151; /* 9.25:1 contrast ratio */
+        }
+        
+        .scale-label {
+            color: #4b5563; /* 7:1 contrast ratio */
+        }
+        
+        /* Skip to main content link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #1e40af;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: 0 0 4px 0;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+            outline: 2px solid #fbbf24;
+            outline-offset: 2px;
+        }
+        
+        /* Focus visible styles */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid #2563eb;
+            outline-offset: 2px;
+        }
+        
+        /* Screen reader only text */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Enhanced footer link contrast */
+        .footer-link {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        
+        .footer-link:hover,
+        .footer-link:focus {
+            color: #e5e7eb;
+        }
+        
+        /* Better checkbox and radio styling */
+        input[type="radio"],
+        input[type="checkbox"] {
+            cursor: pointer;
+        }
+        
+        /* Survey button styling */
+        .survey-btn {
+            background-color: #ffffff;
+            color: #2563eb;
+            font-weight: 600;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            transition: background-color 0.2s;
+        }
+        
+        .survey-btn:hover,
+        .survey-btn:focus {
+            background-color: #f3f4f6;
+        }
+    </style>
 </head>
 <body>
-    <header class="bg-white shadow-sm">
+    <!-- Skip to main content for keyboard navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="bg-white shadow-sm" role="banner">
         <div class="container mx-auto px-4 py-4">
             <h1 class="text-2xl font-bold text-gray-800">Mental Health Self-Care</h1>
         </div>
     </header>
 
     <!-- Nav with top-right Survey button -->
-    <nav class="bg-blue-500 text-white">
+    <nav class="bg-blue-500 text-white" role="navigation" aria-label="Main navigation">
         <div class="container mx-auto px-4 py-2 flex items-center justify-between">
-            <ul class="flex space-x-6">
-                <li><a href="index.html" class="hover:underline">Home</a></li>
-                <li><a href="practices.html" class="hover:underline">Daily Practices</a></li>
-                <li><a href="checkin.html" class="hover:underline font-bold">Check-In</a></li>
+            <ul class="flex space-x-6" role="list">
+                <li role="listitem">
+                    <a href="index.html" class="hover:underline focus:underline">Home</a>
+                </li>
+                <li role="listitem">
+                    <a href="practices.html" class="hover:underline focus:underline">Daily Practices</a>
+                </li>
+                <li role="listitem">
+                    <a href="checkin.html" class="hover:underline focus:underline" aria-current="page">Check-In</a>
+                </li>
             </ul>
 
-            <!-- Top-right Survey button (only addition) -->
+            <!-- Top-right Survey button -->
             <a href="survey.html"
-               class="inline-block bg-white text-blue-600 font-semibold px-3 py-2 rounded-md shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+               class="survey-btn"
+               aria-label="Go to usability survey">
                Usability Survey
             </a>
         </div>
     </nav>
 
-    <main class="container mx-auto px-4 py-8">
+    <main id="main-content" class="container mx-auto px-4 py-8" role="main">
         <div class="checkin-bg p-8 rounded-lg shadow-md">
             <h2 class="text-3xl font-bold text-gray-800 mb-6">Daily Check-In</h2>
             
-            <form id="checkinForm" class="space-y-6">
-                <div>
-                    <label class="block text-lg font-medium text-gray-700 mb-2">How are you feeling today?</label>
+            <form id="checkinForm" class="space-y-6" aria-label="Daily mental health check-in form">
+                <!-- Feeling Scale -->
+                <fieldset>
+                    <legend class="block text-lg font-medium form-label mb-2">
+                        How are you feeling today?
+                    </legend>
                     <div class="flex justify-between mt-2">
-                        <span class="text-sm text-gray-500">Not great</span>
-                        <div class="flex items-center space-x-4">
+                        <span class="text-sm scale-label" id="scale-low">Not great</span>
+                        <div class="flex items-center space-x-4" role="radiogroup" aria-labelledby="scale-low scale-high">
                             <label class="flex items-center">
-                                <input type="radio" name="feeling" value="1" class="h-5 w-5 text-blue-600">
-                                <span class="ml-2">1</span>
+                                <input type="radio" name="feeling" value="1" class="h-5 w-5 text-blue-600" required aria-label="Feeling level 1 out of 5">
+                                <span class="ml-2 form-text">1</span>
                             </label>
                             <label class="flex items-center">
-                                <input type="radio" name="feeling" value="2" class="h-5 w-5 text-blue-600">
-                                <span class="ml-2">2</span>
+                                <input type="radio" name="feeling" value="2" class="h-5 w-5 text-blue-600" aria-label="Feeling level 2 out of 5">
+                                <span class="ml-2 form-text">2</span>
                             </label>
                             <label class="flex items-center">
-                                <input type="radio" name="feeling" value="3" class="h-5 w-5 text-blue-600">
-                                <span class="ml-2">3</span>
+                                <input type="radio" name="feeling" value="3" class="h-5 w-5 text-blue-600" aria-label="Feeling level 3 out of 5">
+                                <span class="ml-2 form-text">3</span>
                             </label>
                             <label class="flex items-center">
-                                <input type="radio" name="feeling" value="4" class="h-5 w-5 text-blue-600">
-                                <span class="ml-2">4</span>
+                                <input type="radio" name="feeling" value="4" class="h-5 w-5 text-blue-600" aria-label="Feeling level 4 out of 5">
+                                <span class="ml-2 form-text">4</span>
                             </label>
                             <label class="flex items-center">
-                                <input type="radio" name="feeling" value="5" class="h-5 w-5 text-blue-600">
-                                <span class="ml-2">5</span>
+                                <input type="radio" name="feeling" value="5" class="h-5 w-5 text-blue-600" aria-label="Feeling level 5 out of 5">
+                                <span class="ml-2 form-text">5</span>
                             </label>
                         </div>
-                        <span class="text-sm text-gray-500">Great</span>
+                        <span class="text-sm scale-label" id="scale-high">Great</span>
                     </div>
-                </div>
+                </fieldset>
 
-                <div>
-                    <label class="block text-lg font-medium text-gray-700 mb-3">Which emotions describe you today?</label>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <!-- Emotions Checkboxes -->
+                <fieldset>
+                    <legend class="block text-lg font-medium form-label mb-3">
+                        Which emotions describe you today?
+                    </legend>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3" role="group">
                         <label class="flex items-center">
-                            <input type="checkbox" name="emotions" value="happy" class="h-4 w-4 text-blue-600">
-                            <span class="ml-2">Happy</span>
+                            <input type="checkbox" name="emotions" value="happy" class="h-4 w-4 text-blue-600" id="emotion-happy">
+                            <span class="ml-2 form-text">Happy</span>
                         </label>
                         <label class="flex items-center">
-                            <input type="checkbox" name="emotions" value="stressed" class="h-4 w-4 text-blue-600">
-                            <span class="ml-2">Stressed</span>
+                            <input type="checkbox" name="emotions" value="stressed" class="h-4 w-4 text-blue-600" id="emotion-stressed">
+                            <span class="ml-2 form-text">Stressed</span>
                         </label>
                         <label class="flex items-center">
-                            <input type="checkbox" name="emotions" value="anxious" class="h-4 w-4 text-blue-600">
-                            <span class="ml-2">Anxious</span>
+                            <input type="checkbox" name="emotions" value="anxious" class="h-4 w-4 text-blue-600" id="emotion-anxious">
+                            <span class="ml-2 form-text">Anxious</span>
                         </label>
                         <label class="flex items-center">
-                            <input type="checkbox" name="emotions" value="tired" class="h-4 w-4 text-blue-600">
-                            <span class="ml-2">Tired</span>
+                            <input type="checkbox" name="emotions" value="tired" class="h-4 w-4 text-blue-600" id="emotion-tired">
+                            <span class="ml-2 form-text">Tired</span>
                         </label>
                         <label class="flex items-center">
-                            <input type="checkbox" name="emotions" value="calm" class="h-4 w-4 text-blue-600">
-                            <span class="ml-2">Calm</span>
+                            <input type="checkbox" name="emotions" value="calm" class="h-4 w-4 text-blue-600" id="emotion-calm">
+                            <span class="ml-2 form-text">Calm</span>
                         </label>
                         <label class="flex items-center">
-                            <input type="checkbox" name="emotions" value="overwhelmed" class="h-4 w-4 text-blue-600">
-                            <span class="ml-2">Overwhelmed</span>
+                            <input type="checkbox" name="emotions" value="overwhelmed" class="h-4 w-4 text-blue-600" id="emotion-overwhelmed">
+                            <span class="ml-2 form-text">Overwhelmed</span>
                         </label>
                         <label class="flex items-center">
-                            <input type="checkbox" name="emotions" value="excited" class="h-4 w-4 text-blue-600">
-                            <span class="ml-2">Excited</span>
+                            <input type="checkbox" name="emotions" value="excited" class="h-4 w-4 text-blue-600" id="emotion-excited">
+                            <span class="ml-2 form-text">Excited</span>
                         </label>
                         <label class="flex items-center">
-                            <input type="checkbox" name="emotions" value="sad" class="h-4 w-4 text-blue-600">
-                            <span class="ml-2">Sad</span>
+                            <input type="checkbox" name="emotions" value="sad" class="h-4 w-4 text-blue-600" id="emotion-sad">
+                            <span class="ml-2 form-text">Sad</span>
                         </label>
                     </div>
-                </div>
+                </fieldset>
 
+                <!-- Notes Textarea -->
                 <div>
-                    <label for="notes" class="block text-lg font-medium text-gray-700 mb-2">Anything you'd like to note?</label>
-                    <textarea id="notes" name="notes" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
+                    <label for="notes" class="block text-lg font-medium form-label mb-2">
+                        Anything you'd like to note? <span class="text-sm font-normal">(optional)</span>
+                    </label>
+                    <textarea 
+                        id="notes" 
+                        name="notes" 
+                        rows="3" 
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 form-text"
+                        aria-describedby="notes-description"></textarea>
+                    <p id="notes-description" class="sr-only">Optional field for additional thoughts or reflections</p>
                 </div>
 
-                <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-md transition-colors">
+                <button 
+                    type="submit" 
+                    class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-md transition-colors"
+                    aria-label="Submit your daily check-in">
                     Submit Check-In
                 </button>
             </form>
 
-            <div id="suggestions" class="mt-8 hidden">
+            <div id="suggestions" class="mt-8 hidden" role="region" aria-live="polite" aria-label="Check-in suggestions">
                 <h3 class="text-xl font-bold text-gray-800 mb-3">Based on your check-in:</h3>
                 <div class="bg-white p-4 rounded-lg shadow-sm">
                     <p id="suggestionText" class="text-gray-700"></p>
                     <div id="resources" class="mt-4 space-y-2 hidden">
-                        <p class="font-medium">You might find these helpful:</p>
-                        <ul class="list-disc pl-5 space-y-1">
-                            <li><a href="practices.html" class="text-blue-600 hover:underline">Breathing exercises</a></li>
-                            <li><a href="https://www.7cups.com/" target="_blank" class="text-blue-600 hover:underline">Free online listener</a></li>
-                            <li><a href="https://www.crisistextline.org/" target="_blank" class="text-blue-600 hover:underline">Crisis Text Line</a></li>
+                        <p class="font-medium form-label">You might find these helpful:</p>
+                        <ul class="list-disc pl-5 space-y-1" role="list">
+                            <li>
+                                <a href="practices.html" class="text-blue-600 hover:underline focus:underline">
+                                    Breathing exercises
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.7cups.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline focus:underline">
+                                    Free online listener
+                                    <span class="sr-only">(opens in new window)</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.crisistextline.org/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline focus:underline">
+                                    Crisis Text Line
+                                    <span class="sr-only">(opens in new window)</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -131,10 +263,51 @@
         </div>
     </main>
 
-    <footer class="bg-gray-800 text-white py-6">
+    <footer class="bg-gray-800 text-white py-6" role="contentinfo">
         <div class="container mx-auto px-4">
-            <p class="text-center mb-2">Need immediate help? Call 988 (Suicide & Crisis Lifeline)</p>
+            <p class="text-center mb-2">
+                <strong>Need immediate help?</strong> 
+                <span class="sr-only">Call the</span> 
+                <a href="tel:988" 
+                   class="footer-link"
+                   aria-label="Call 988 Suicide and Crisis Lifeline">
+                    988 Suicide & Crisis Lifeline
+                </a>
+            </p>
         </div>
     </footer>
+
+    <script>
+        // Form handling with accessibility announcements
+        document.getElementById('checkinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const feeling = document.querySelector('input[name="feeling"]:checked');
+            const emotions = Array.from(document.querySelectorAll('input[name="emotions"]:checked'))
+                .map(cb => cb.value);
+            const notes = document.getElementById('notes').value;
+            
+            // Show suggestions
+            const suggestionsDiv = document.getElementById('suggestions');
+            const suggestionText = document.getElementById('suggestionText');
+            const resources = document.getElementById('resources');
+            
+            suggestionsDiv.classList.remove('hidden');
+            
+            if (feeling && parseInt(feeling.value) <= 2) {
+                suggestionText.textContent = "We notice you might be having a tough day. Remember, it's okay to not be okay. Consider trying some breathing exercises or reaching out for support.";
+                resources.classList.remove('hidden');
+            } else if (emotions.includes('stressed') || emotions.includes('anxious') || emotions.includes('overwhelmed')) {
+                suggestionText.textContent = "Feeling stressed or anxious is common. Try taking a few minutes for a breathing exercise or mindfulness practice.";
+                resources.classList.remove('hidden');
+            } else {
+                suggestionText.textContent = "Great job checking in with yourself today! Keep up with your self-care practices.";
+                resources.classList.add('hidden');
+            }
+            
+            // Scroll to suggestions
+            suggestionsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    </script>
 </body>
 </html>
